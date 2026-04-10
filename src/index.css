@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Unbounded:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e0c06a;
+  --gold-dim: rgba(201, 168, 76, 0.12);
+  --gold-border: rgba(201, 168, 76, 0.35);
+  --bg-deep: #070707;
+  --bg-card: #0f0f0f;
+  --bg-raised: #161616;
+  --bg-hover: #1c1c1c;
+  --text-primary: #e4e0d4;
+  --text-muted: #555555;
+  --text-dim: #2e2e2e;
+  --text-error: #b0101079;
+  --border-subtle: #191919;
+  --border-mid: #242424;
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
+  --rounded-lg: 12px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Unbounded", sans-serif;
+  }
+
+  ::selection {
+    background-color: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-mid);
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  /* Кнопки */
+  .btn-gold {
+    background: linear-gradient(135deg, #c9a84c 0%, #a8862c 100%);
+    color: #070707;
+    font-family: "Unbounded", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition:
+      box-shadow 0.25s ease,
+      filter 0.25s ease;
+  }
+
+  .btn-gold:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 0 28px rgba(201, 168, 76, 0.22);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    color: var(--text-primary);
+  }
+
+  /* Карточка места */
+  .seat-free {
+    background-color: var(--bg-raised);
+    border: 1px solid var(--border-mid);
+    color: var(--text-muted);
+    font-size: 0.55rem;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    width: 2.25rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .seat-free:hover {
+    border-color: var(--gold-border);
+    background-color: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  .seat-selected {
+    background-color: var(--gold-dim);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.55rem;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    width: 2.25rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.18);
+  }
+
+  .seat-taken {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-dim);
+    font-size: 0.55rem;
+    font-family: "Montserrat", sans-serif;
+    cursor: not-allowed;
+    width: 2.25rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.35;
+  }
+
+  /* Инпут */
+  .input-dark {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-mid);
+    color: var(--text-primary);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.875rem;
+    padding: 0.65rem 0;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .input-dark::placeholder {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+  }
+
+  .input-dark:focus {
+    border-bottom-color: var(--gold);
+  }
+
+  /* Тег */
+  .tag-dark {
+    background-color: var(--bg-raised);
+    border: 1px solid var(--border-mid);
+    color: var(--text-muted);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    display: inline-block;
+  }
+
+  /* Золотая линия */
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.4;
+  }
+}
